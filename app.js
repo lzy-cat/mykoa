@@ -57,7 +57,7 @@ router.use('/api', api)
 router.use('/index', index)
 
 
-//启动路由
+//启动路由s
 app.use(router.routes()).use(router.allowedMethods)
 //监听端口
 app.listen(4000, () => {
