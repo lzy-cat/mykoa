@@ -1,0 +1,38 @@
+{
+  "name": "mykoa",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node app.js",
+    "prd": "cross-env NODE_ENV=production pme start app.js",
+    "test": "cross-env NODE_ENV=test jest --runInBand -forceExit --colors"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "art-template": "^4.13.2",
+    "fs": "^0.0.1-security",
+    "koa": "^2.12.1",
+    "koa-art-template": "^1.1.1",
+    "koa-body": "^4.2.0",
+    "koa-bodyparser": "^3.2.0",
+    "koa-generic-session": "^2.0.4",
+    "koa-multer": "^1.0.2",
+    "koa-redis": "^4.0.1",
+    "koa-router": "^9.0.1",
+    "koa-static": "^5.0.0",
+    "md5": "^2.2.1",
+    "pg": "^8.2.1",
+    "pg-hstore": "^2.3.3",
+    "redis": "^3.0.2",
+    "sequelize": "^5.21.13"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "cross-env": "^7.0.2",
+    "jest": "^26.1.0",
+    "mocha": "^8.0.1",
+    "supertest": "^4.0.2"
+  }
+}
