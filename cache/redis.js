@@ -14,7 +14,7 @@ redisClient.on('error',err=>{
  * @param {*} val 值
  * @param {*} timeout 过期时间 单位s
  */
-/* function set(key,val,timeout=60*60){
+ function set(key,val,timeout=60*60){
     //判断val是否为object, 不是就转为string，===指严格比较操作数，不允许进行类型转换
     if(!typeof val === 'object'){
         val = JSON.stringify(val)
@@ -38,7 +38,7 @@ async function get(key){
         }
     })
     return values
-} */
+} 
 
 module.exports = {
     set,

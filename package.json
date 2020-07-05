@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "start": "node app.js",
-    "prd": "cross-env NODE_ENV=production pme start app.js",
-    "test": "cross-env NODE_ENV=test jest --runInBand -forceExit --colors"
+    "prd": "cross-env NODE_ENV=production pm2 start bin/www",
+    "test": "cross-env NODE_ENV=test jest --runInBand --forceExit --colors"
   },
   "author": "",
   "license": "ISC",
@@ -29,10 +29,7 @@
     "sequelize": "^5.21.13"
   },
   "devDependencies": {
-    "chai": "^4.2.0",
     "cross-env": "^7.0.2",
-    "jest": "^26.1.0",
-    "mocha": "^8.0.1",
-    "supertest": "^4.0.2"
+    "nodemon": "^2.0.4"
   }
 }

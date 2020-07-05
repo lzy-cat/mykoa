@@ -2,13 +2,14 @@
  * @Author: LZY 
  * @Date: 2020-06-14 16:01:39 
  * @Last Modified by: LZY
- * @Last Modified time: 2020-07-01 10:46:30
+ * @Last Modified time: 2020-07-04 17:29:46
  */
 
 const router = require('koa-router')()
 //const model = require('../../model')
 const md5 = require('md5')
 const User = require('../../model/admin/user.js')
+const stringUtil = require('../../utils/stringUtil.js')
 
 //获取模型
 //let User = model.user
@@ -17,13 +18,23 @@ const User = require('../../model/admin/user.js')
 router.post('/userLogin',async (ctx)=>{
     //获取参数
     let loginUser = ctx.request.body
+    //非空校验
+    if(stringUtil.isEmpty(loginUser.userName)){
+        ctx.body = '用户名不能为空'
+        return
+    }
+    if(stringUtil.isEmpty(loginUser.password)){
+        ctx.body = '用户密码不能为空'
+        return
+    }
+
     //数据库查询
     let u = await User.findOne({
         where:{
             userName:loginUser.userName
         }
     })
-    console.log(JSON.stringify(u))
+    
     if(!u){
         ctx.body = '用户不存在'
         return
@@ -42,6 +53,15 @@ router.post('/userLogin',async (ctx)=>{
  router.post('/register', async (ctx) => {
      //获取post中的参数
      let registerUser = ctx.request.body;
+     //非空判断
+     if(stringUtil.isEmpty(registerUser.userName)){
+        ctx.body = '用户名不能为空'
+        return
+    }
+    if(stringUtil.isEmpty(registerUser.password)){
+        ctx.body = '用户密码不能为空'
+        return
+    }
      //首先判断是否存在该用户，存在就不能注册
      let hasUser = await User.findOne({
          where:{
@@ -71,10 +91,5 @@ router.post('/userLogin',async (ctx)=>{
              }
          })
  });
-
-
-
-
-
-
+ 
 module.exports = router.routes()

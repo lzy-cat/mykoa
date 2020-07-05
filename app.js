@@ -64,4 +64,3 @@ app.listen(4000, () => {
   console.log('服务启动中')
 })
 
-module.exports = {app}

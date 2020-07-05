@@ -71,13 +71,13 @@ router.post('/uploadfile', async (ctx, next) => {
  router.get('/json',async (ctx)=>{
    const session = ctx.session
    //设置一个viewNum
-   /* if(session.viewNum == null){
+    if(session.viewNum == null){
       session.viewNum = 0
    } 
-   session.viewNum++*/
+   session.viewNum++
    ctx.body = {
      title: 'Hello Koa!',
-     //viewNum: session.viewNum
+     viewNum: session.viewNum
    }
  })
 
