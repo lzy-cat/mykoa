@@ -1,5 +1,4 @@
 const router = require('koa-router')()
-//const model = require('../../model.js')
 const md5 = require('md5')
 const Sequelize = require('sequelize')
 const User = require('../../model/admin/user.js')
@@ -17,15 +16,6 @@ router.get('/', async (ctx) => {
  * 条件分页查询
  */
 router.get('/UserList', async (ctx) => {
-    //关联模型
-    Article.belongsTo(User, {
-        foreignKeys: 'userId',
-        targetKey: 'id'
-    })
-    User.hasMany(Article, {
-        foreignKey: 'userId',
-        sourceKey: 'id'
-    })
     //获取查询条件
     let searchParams = ctx.request.query
 

@@ -1,5 +1,6 @@
 const Sequelize = require('sequelize')
 const sequelize = require('../../config/db.js')
+const User = require('./user')
 
 const Article = sequelize.define('article',{
     title:{

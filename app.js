@@ -13,7 +13,7 @@ let app = new Koa()
 let router = new Router()
 //获取post
 app.use(bodyParser())
-//上传图片中间件
+//上传图片中间件(和koa-bodyparser有冲突，在postman中测试时，在x-www-form-urlencoded进行数据测试就会没用，只能在form-data进行测试)
 app.use(koaBody({
   multipart: true,
   formidable: {
@@ -23,8 +23,8 @@ app.use(koaBody({
 //配置session
 app.keys = ['keys', 'keykeys']
 app.use(session({
-  key: 'weibo.sid', //默认是koa.sid
-  prefix: 'weibo:sess:', //redis key 的前缀，默认是koa:sess：
+  key: 'koa.sid', //默认是koa.sid
+  prefix: 'koa:sess:', //redis key 的前缀，默认是koa:sess：
   cookie: {
     path: '/',
     httpOnly: true,
